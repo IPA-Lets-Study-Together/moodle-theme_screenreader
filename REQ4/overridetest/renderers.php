@@ -1,6 +1,6 @@
 <?php
  // http://docs.moodle.org/dev/Overriding_a_renderer
-class theme_screenreader_core_renderer extends theme_bootstrapbase_core_renderer {
+class theme_overridetest_core_renderer extends core_renderer {
 
 
 	/**
@@ -24,6 +24,6 @@ class theme_screenreader_core_renderer extends theme_bootstrapbase_core_renderer
 	    $content .= html_writer::empty_tag('img', array('src'=>$this->pix_url('headingpic', 'theme'), 'alt'=>'', 'class'=>'headingimage'));
 	    $content .= parent::heading($text, $level, $classes, $id); // parent renderer
 	    $content .= html_writer::end_tag('div');
-		return $content;
-	}
+    return $content;
+}
 }

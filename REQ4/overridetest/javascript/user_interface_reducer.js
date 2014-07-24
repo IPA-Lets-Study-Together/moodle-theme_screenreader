@@ -1,0 +1,1 @@
+Y.one('body').get('children').remove();

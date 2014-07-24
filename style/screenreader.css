@@ -1,6 +1,17 @@
-.headingcontainer .headingimage {float:left;margin-right:1em;}
+/*.headingcontainer .headingimage {float:left;margin-right:1em;}
 .headingcontainer h2,
 .headingcontainer h3,
 .headingcontainer h4,
 .headingcontainer h5,
-.headingcontainer h6 {text-align:left;}
+.headingcontainer h6 {text-align:left;}*/
+
+/*
+	this is to override fixed navbar behavior
+ */
+body{
+	padding-top: 0;
+}
+.navbar-fixed-top{
+	position:static;
+	margin-bottom: 20px;
+}

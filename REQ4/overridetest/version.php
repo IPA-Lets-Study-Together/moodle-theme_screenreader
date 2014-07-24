@@ -30,7 +30,7 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2014071805;
+$plugin->version   = 2013110505;
 $plugin->requires  = 2013110500;
-$plugin->component = 'theme_screenreader';
+$plugin->component = 'theme_overridetest';
 
