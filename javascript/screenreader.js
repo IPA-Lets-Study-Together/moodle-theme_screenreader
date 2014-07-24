@@ -4,7 +4,9 @@
 
 
 
-var JUMPERS_LIST_ID = 'sr_jumpers';
+var ID_PREFIX = 'sr_';
+var JUMPERS_LIST_ID = ID_PREFIX+'jumpers';
+var LINKS_LIST_ID = ID_PREFIX+'links';
 var ID_ATTR_LENGTH = 10; // generated id attribute length + 'sr_' part
 var USED_IDs = new Array();
 
@@ -30,8 +32,11 @@ srBar.append(srBarHeaderLinks);
 */
 
 // create list of links
-var listOfLinks = [{href:'#', name:'Courses'}, {href:'#', name:'Calendar'}, {href:'#', name:'Forum'}];
-var srBarListOfLinks = Y.Node.create('<ul id="sr_links"></ul>');
+var listOfLinks = [
+	{href:'http://localhost/moodle/course/view.php?id=2', name:'Matematika'},
+	{href:'http://localhost/moodle/admin/settings.php?section=frontpagesettings', name:'Edit user settings'},
+	{href:'http://localhost/moodle/calendar/view.php?view=month&time=1406200931&course=1', name:'This month'}
+];
 
 // create list of jumpers
 var listOfJumpers = [
@@ -44,15 +49,8 @@ var listOfJumpers = [
 	//{selector:'.collapsed ', name:'Test many items with same class'}
 ];
 
-// populate these lists
-for (var i = listOfLinks.length - 1; i >= 0; i--) {
-	var item = listOfLinks[i];
-	var listItem = Y.Node.create('<li><a href="'+ item.href +'">'+ item.name +'</a></li>'); 
-	srBarListOfLinks.append(listItem);
 
-	// provjeri postoji li taj ID, ako ne dodjeli ga...
-};
-
+var srBarListOfLinks = generateListOfLinks(listOfLinks);
 var srBarListOfJumpers = generateListOfJumpers(listOfJumpers);
 
 // attach those lists
@@ -98,8 +96,27 @@ function generateListOfJumpers(listOfJumpers){
 	return html;
 }
 
+// ============================
+function generateListOfLinks(listOfLinks){
+	var html = Y.Node.create('<ul id="'+LINKS_LIST_ID+'"></ul>');
+	
+	for (var i = 0, len = listOfLinks.length; i < len; i++) {
+		var dataObj = listOfLinks[i];
+
+		var linkName = dataObj.name;
+		// TO-DO: itemID.length === 0...uzmi ime od pravog linka
+
+		// make link item for each
+		var listItem = Y.Node.create('<li><a href="'+ dataObj.href +'">'+ linkName + '</a></li>');
+		html.append(listItem);
+
+	};
+	return html;
+}
+
+// ============================
 function generateUniqueId(length){
-	var ID = "sr_";
+	var ID = ID_PREFIX;
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
     for( var i=0; i < length; i++ )
