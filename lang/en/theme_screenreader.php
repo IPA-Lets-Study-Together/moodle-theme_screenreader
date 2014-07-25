@@ -23,7 +23,7 @@
  */
 
 $string['pluginname'] = 'Screenreader';
-$string['configtitle'] = 'Screenreader';
+$string['configtitle'] = 'Screenreader configuration';
 $string['region-side-post'] = 'Right';
 $string['region-side-pre'] = 'Left';
 $string['choosereadme'] = 'Theme for screenreader.';

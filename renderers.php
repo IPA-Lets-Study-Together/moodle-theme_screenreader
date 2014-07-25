@@ -11,6 +11,7 @@ class theme_screenreader_core_renderer extends theme_bootstrapbase_core_renderer
 	 * @param string $id An optional ID
 	 * @return string the HTML to output.
 	 */
+	
 	/*public function heading($text, $level = 2, $classes = 'main', $id = null) {
 	    $level = (integer) $level;
 	    if ($level < 1 or $level > 6) {
@@ -19,11 +20,22 @@ class theme_screenreader_core_renderer extends theme_bootstrapbase_core_renderer
 	    return html_writer::tag('h' . $level, $text, array('id' => $id, 'class' => renderer_base::prepare_classes($classes)));
 	}*/
 
-	public function heading($text, $level = 2, $classes = 'main', $id = null) {
+	/*public function heading($text, $level = 2, $classes = 'main', $id = null) {
 	    $content  = html_writer::start_tag('div', array('class'=>'headingcontainer'));
 	    $content .= html_writer::empty_tag('img', array('src'=>$this->pix_url('headingpic', 'theme'), 'alt'=>'', 'class'=>'headingimage'));
 	    $content .= parent::heading($text, $level, $classes, $id); // parent renderer
 	    $content .= html_writer::end_tag('div');
 		return $content;
+	}*/
+
+
+	public function heading($text, $level = 2, $classes = 'main', $id = null) {
+	   global $PAGE;
+
+
+	   var_dump(get_class_methods('core_renderer'));
+	   return $PAGE->theme->settings->backgroundcolor;
 	}
+
+
 }
