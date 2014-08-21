@@ -1,4 +1,3 @@
-
 // create screenreader box
 //Y.one('body').get('children').remove();
 
@@ -13,7 +12,8 @@ var USED_IDs = new Array();
 
 
 // create root node
-var srBar = Y.Node.create('<div id="screenreader_shortcuts" style="background:#FFFFCC; padding:10px; margin:5px; border:2px solid black; z-index:1111 "></div>');
+//var srBar = Y.Node.create('<div id="screenreader_shortcuts" style="background:#FFFFCC; padding:10px; margin:5px; border:2px solid black; z-index:1111 "></div>');
+var srBar = Y.one('#theme_screenreader_navigation-bar');
 
 // header
 var srBarHeader = Y.Node.create('<h4 aria-hidden="true">Accessibility - Screenreader shortcuts</h4>');
