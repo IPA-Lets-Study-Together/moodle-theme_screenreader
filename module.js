@@ -1,5 +1,6 @@
 M.theme_screenreader = {
 
+	// DEFAULTS
 	ID_PREFIX : 'sr_',
 	JUMPERS_LIST_ID : this.ID_PREFIX+'jumpers',
 	LINKS_LIST_ID : this.ID_PREFIX+'links',
@@ -8,38 +9,39 @@ M.theme_screenreader = {
 
 	navigationBar : null,
 
+	/*
 
+		EXAMPLE DATA:
+		listOfJumpers = [ {"selector":".block_navigation", "name":"Navigation block"}, {"selector":".block_settings", "name":"Administration block"}, {"selector":".block_calendar_month", "name":"Calendar block"}, {"selector":".main", "name":"Available courses"}, {"selector":"#inst4 .title", "name":"Test element with id"}, {"selector":".kk", "name":"Test 0 items"}, {"selector":".collapsed ", "name":"Test many items with same class"} ]
+		listOfLinks = [ {"href":"http://localhost/moodle/course/view.php?id=2", "name":"Matematika"}, {"href":"http://localhost/moodle/admin/settings.php?section=frontpagesettings", "name":"Edit user settings"}, {"href":"http://localhost/moodle/calendar/view.php?view=month&time=1406200931&course=1", "name":"This month"} ]
+	*/
 
 
 	init: function(Y, navBarId, listOfLinks, listOfJumpers) 
 	{
 		this.navigationBar = Y.one('#'+navBarId);
 
-		// tu sa JSON parse ili try cache?
-		// eval("("+'{a:"www"}'+")")
+		// TO-DO: What if container doesn't exists?
 
-		// string to array conversion
-		listOfLinks = eval("("+listOfLinks+")");
-		listOfJumpers = eval("("+listOfJumpers+")");
+		if(listOfLinks.length === 0) listOfLinks = "[]";
+		if(listOfJumpers.length === 0) listOfJumpers = "[]";
 
-		// create list of links
-		/*var listOfLinks = [
-			{href:'http://localhost/moodle/course/view.php?id=2', name:'Matematika'},
-			{href:'http://localhost/moodle/admin/settings.php?section=frontpagesettings', name:'Edit user settings'},
-			{href:'http://localhost/moodle/calendar/view.php?view=month&time=1406200931&course=1', name:'This month'}
-		];
-
-		// create list of jumpers
-		var listOfJumpers = [
-			{selector:'.block_navigation', name:'Navigation block'},
-			{selector:'.block_settings', name:'Administration block'},
-			{selector:'.block_calendar_month', name:'Calendar block'},
-			{selector:'.main', name:'Available courses'},
-			{selector:'#inst4 .title', name:'Test element with id'},
-			{selector:'.kk', name:'Test 0 items'},
-			//{selector:'.collapsed ', name:'Test many items with same class'}
-		];*/
-
+		try{
+			if (typeof JSON === 'object' && typeof JSON.parse === 'function') {
+				listOfJumpers = JSON.parse(listOfJumpers);
+				listOfLinks = JSON.parse(listOfLinks);
+			}
+			else{
+				// string to array conversion
+				listOfLinks = eval("("+listOfLinks+")");
+				listOfJumpers = eval("("+listOfJumpers+")");
+			}
+		}
+		catch(e) {
+			var pre_message = "Screeenreader theme configuration is not correct.\n\nError message:\n"
+			var post_message = "\n\nIf you don't succeed to fix errors, consider contacting developers or changing to another theme in Moodle"
+			alert(pre_message+e.message+post_message);
+		}
 
 		var navigationBarListOfLinks = this.generateListOfLinks(listOfLinks);
 		var navigationBarListOfJumpers = this.generateListOfJumpers(listOfJumpers);
@@ -52,7 +54,7 @@ M.theme_screenreader = {
 		Y.one('body').prepend(this.navigationBar);
 
 
-
+				/*<ul><li><a href="">Skip shortcuts block</a></li><li><a href="#sr_jumpers">Skip links</a></li></ul>*/
 		alert(9);
 	},
 	// ============================
@@ -95,7 +97,7 @@ M.theme_screenreader = {
 			var dataObj = listOfLinks[i];
 
 			var linkName = dataObj.name;
-			// TO-DO: itemID.length === 0...uzmi ime od pravog linka
+			// TO-DO: if(!name) automatski uzmi ime od pravog linka koji postoji za tu adresu
 
 			// make link item for each
 			var listItem = Y.Node.create('<li><a href="'+ dataObj.href +'">'+ linkName + '</a></li>');
