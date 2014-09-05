@@ -29,6 +29,19 @@ $string['choosereadme'] = 'Theme for screenreader.';
 
 
 $string['nav-bar-title'] = 'Accessibility - Screenreader shortcuts';
+$string['configuration-error'] = $string['pluginname'].' theme configuration is not correct';
+$string['error-msg'] = 'Error message';
+$string['error-advice'] = "If you don't succeed to fix errors, consider contacting developers or changing to another theme in Moodle";
+$string['jump-to'] = "Jump to";
+
+$string['setting-navbar_enabled'] = 'Display navigation bar';
+$string['setting-navbar_enabled-descr'] = 'Choose whether navigation bar should be displayed on top of Moodle page';
+$string['setting-jumpers'] = 'Jumpers JSON configuration';
+$string['setting-jumpers-descr'] = 'Use online JSON validation tools; Write CSS selectors; Check help for more';
+$string['setting-links'] = 'Links JSON configuration';
+$string['setting-links-descr'] = 'Use online JSON validation tools';
+
+
 
 /*$string['choosereadme'] = '
 <div class="clearfix">

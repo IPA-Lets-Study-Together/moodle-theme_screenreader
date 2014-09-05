@@ -7,9 +7,9 @@ if ($ADMIN->fulltree) {
 	
 
 	// Links settings
-    $name = 'theme_screenreader/enabled';
-    $title = 'Navigation bar';
-    $description = 'Show screenreader navigation bar on top of Moodle page.';
+    $name = 'theme_screenreader/navbar_enabled';
+    $title = get_string('setting-navbar_enabled', 'theme_screenreader');
+    $description = get_string('setting-navbar_enabled-descr', 'theme_screenreader');
     $default = 1;
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
@@ -17,8 +17,8 @@ if ($ADMIN->fulltree) {
 
     // Jumpers settings
     $name = 'theme_screenreader/jumpers';
-    $title = 'Jumpers YUI selectors:';
-    $description = 'TO-DO: Describe it...Use online tool for JSON validation';
+    $title = get_string('setting-jumpers', 'theme_screenreader');
+    $description = get_string('setting-jumpers-descr', 'theme_screenreader');
     $default = '';
     $setting = new admin_setting_configtextarea($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
@@ -26,8 +26,8 @@ if ($ADMIN->fulltree) {
 
     // Links settings
     $name = 'theme_screenreader/links';
-    $title = 'Jumpers YUI links:';
-    $description = 'TO-DO: Describe it';
+    $title = get_string('setting-links', 'theme_screenreader');
+    $description = get_string('setting-links-descr', 'theme_screenreader');
     $default = '';
     $setting = new admin_setting_configtextarea($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');

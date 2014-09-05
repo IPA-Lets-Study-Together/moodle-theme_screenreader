@@ -2,8 +2,8 @@ M.theme_screenreader = {
 
 	// DEFAULTS
 	ID_PREFIX : 'sr_',
-	JUMPERS_LIST_ID : this.ID_PREFIX+'jumpers',
-	LINKS_LIST_ID : this.ID_PREFIX+'links',
+	JUMPERS_LIST_ID : 'sr_jumpers',
+	LINKS_LIST_ID : 'sr_links',
 	ID_ATTR_LENGTH : 10, // generated id attribute length + 'sr_' part
 	USED_IDs : new Array(),
 
@@ -38,8 +38,8 @@ M.theme_screenreader = {
 			}
 		}
 		catch(e) {
-			var pre_message = "Screeenreader theme configuration is not correct.\n\nError message:\n"
-			var post_message = "\n\nIf you don't succeed to fix errors, consider contacting developers or changing to another theme in Moodle"
+			var pre_message = M.util.get_string('configuration-error', 'theme_screenreader')+'.\n\n'+M.util.get_string('error-msg', 'theme_screenreader')+'\n';
+			var post_message = '\n\n'+M.util.get_string('error-advice', 'theme_screenreader');
 			alert(pre_message+e.message+post_message);
 		}
 
@@ -53,9 +53,9 @@ M.theme_screenreader = {
 		// attach root node
 		Y.one('body').prepend(this.navigationBar);
 
-
-				/*<ul><li><a href="">Skip shortcuts block</a></li><li><a href="#sr_jumpers">Skip links</a></li></ul>*/
-		alert(9);
+		// attach skip navigation bar node
+		Y.one('.skiplinks').append('<a class="skip" href="#page-header">Skip navigation bar</a>');
+		//alert(9);
 	},
 	// ============================
 	generateListOfJumpers: function(listOfJumpers){
@@ -81,7 +81,7 @@ M.theme_screenreader = {
 
 				// generate and append item jumper
 				var suffix = (itemsLength == 1)? '' : ' #'+(counter+1);
-				var listItem = Y.Node.create('<li><a href="#'+ itemID +'">Jump to '+ selectorObj.name + suffix + '</a></li>');
+				var listItem = Y.Node.create('<li><a href="#'+ itemID +'">'+ M.util.get_string('jump-to', 'theme_screenreader') + ' ' +selectorObj.name + suffix + '</a></li>');
 				html.append(listItem);
 
 				counter++;
