@@ -30,7 +30,7 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2014090404;
+$plugin->version   = 2014091001;
 $plugin->requires  = 2013111800; /* Moodle 2.6 */
 $plugin->component = 'theme_screenreader';
 
