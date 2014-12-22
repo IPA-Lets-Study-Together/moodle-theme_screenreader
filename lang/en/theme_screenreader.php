@@ -35,15 +35,15 @@ $string['jump-to'] = "Jump to";
 
 /* Configuration form */
 $string['setting-navbar_enabled'] = 'Display navigation bar';
-$string['setting-navbar_enabled-descr'] = 'Choose whether navigation bar should be displayed on top of Moodle page';
+$string['setting-navbar_enabled-descr'] = 'Choose whether navigation bar should be displayed on top of Moodle page. Please note that <em>Screenreader</em> theme must be selected in order for this to work';
 $string['setting-jumpers'] = 'Jumpers JSON configuration';
 $string['setting-jumpers-descr'] = 'Please use online JSON validation tool (e.g. http://jsonformatter.curiousconcept.com) to validate entry before submit.
 <br>Configuration should look like this: <pre><code>[{"selector": "<em>my_CSS_selector</em>", "name":"<em>my_name</em>"}, {...}, ... ]</code></pre> where <code><em>my_CSS_selector</code></em> is CSS selector that references some element of currently loaded web page where jumper should switch the focus and <code><em>my_name</code></em> is a name of a link (jumper) within navigation bar that is visible to a user.
-<br>Please check configuration instructions document for more help.';
+<br>Please check configuration instructions document for more help';
 $string['setting-links'] = 'Links JSON configuration';
 $string['setting-links-descr'] = 'Please use online JSON validation tool (e.g. http://jsonformatter.curiousconcept.com) to validate entry before submit.
 <br>Configuration should look like this: <pre><code>[{"href": "<em>my_http</em>", "name":"<em>my_name</em>"}, {...}, ... ]</code></pre> where <code><em>my_http</code></em> is absolute or relative web page destination path (or even internal link using #) and <code><em>my_name</code></em> is a name of a link (jumper) within navigation bar that is visible to a user.
-<br>Please check configuration instructions document for more help.';
+<br>Please check configuration instructions document for more help';
 
 
 /* README */

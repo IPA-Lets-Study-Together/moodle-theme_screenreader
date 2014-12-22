@@ -1,3 +1,30 @@
+//IE <9 support
+if (!Array.prototype.indexOf)
+{
+  Array.prototype.indexOf = function(elt /*, from*/)
+  {
+    var len = this.length >>> 0;
+
+    var from = Number(arguments[1]) || 0;
+    from = (from < 0)
+         ? Math.ceil(from)
+         : Math.floor(from);
+    if (from < 0)
+      from += len;
+
+    for (; from < len; from++)
+    {
+      if (from in this &&
+          this[from] === elt)
+        return from;
+    }
+    return -1;
+  };
+}
+
+
+
+
 M.theme_screenreader = {
 
 	// DEFAULTS
@@ -19,6 +46,7 @@ M.theme_screenreader = {
 
 	init: function(Y, navBarId, listOfLinks, listOfJumpers) 
 	{
+
 		this.navigationBar = Y.one('#'+navBarId);
 
 		// TO-DO: What if container doesn't exists?
@@ -51,10 +79,11 @@ M.theme_screenreader = {
 		this.navigationBar.append(navigationBarListOfJumpers);
 
 		// attach root node
-		Y.one('body').prepend(this.navigationBar);
+		// BUG!! it's already attached by renderrer, delete this Y.one('body').prepend(this.navigationBar);
 
 		// attach skip navigation bar node
-		Y.one('.skiplinks').append('<a class="skip" href="#page-header">Skip navigation bar</a>');
+		//Y.one('.skiplinks').append('<a class="skip" href="#page-header">Skip navigation bar</a>'); // nije potrebno
+		//Y.one('body').append('<a class="skip" href="#page-header">Skip navigation bar</a>');
 		//alert(9);
 	},
 	// ============================

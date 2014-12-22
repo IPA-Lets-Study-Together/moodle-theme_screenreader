@@ -12,17 +12,12 @@ class theme_screenreader_core_renderer extends theme_bootstrapbase_core_renderer
 	   	//var_dump(get_class_methods('core_renderer'));
 
 		// wrapper around standard elements
-		$content = html_writer::start_tag('div', array('class' => HEADER_CLASS)); 
+		$content = html_writer::start_tag('div', array('class' => HEADER_CLASS, 'role' => 'navigation')); 
 		$content .= parent::standard_top_of_body_html(); // original - parent renderer (skip links, js, etc...)
 
 		// if navbar display is enabled
 		$navbar_enabled = $this->page->theme->settings->navbar_enabled;
 		if($navbar_enabled === '1' && isloggedin()){
-
-			
-			$html_navigation_bar = array(
-				'id' => NAVBAR_ID
-			);
 
 
 			// include js script and pass the arguments
@@ -47,7 +42,7 @@ class theme_screenreader_core_renderer extends theme_bootstrapbase_core_renderer
 
 
 			// generate navigation bar as a first <body> element
-			$content .= html_writer::start_tag('div', $html_navigation_bar);
+			$content .= html_writer::start_tag('div', array('id' => NAVBAR_ID));
 				$content .= html_writer::tag('h4', get_string('nav-bar-title', 'theme_screenreader'), array('aria-hidden'=>'true'));
 
 				// links and jumper will be rendered here within <ul> dynamically

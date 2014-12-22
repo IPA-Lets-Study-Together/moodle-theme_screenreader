@@ -2,8 +2,10 @@
 	this is to override fixed navbar behavior
  */
 body{
-	padding-top: 0;
+	padding-top: 0 !important;
 }
+
+
 .navbar-fixed-top{
 	position:static;
 	margin-bottom: 20px;
@@ -15,3 +17,4 @@ body{
 	border:2px solid black;
 	z-index:1111;
 }
+

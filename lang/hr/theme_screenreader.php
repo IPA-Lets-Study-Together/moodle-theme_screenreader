@@ -35,7 +35,7 @@ $string['jump-to'] = "Skok na";
 
 /* Configuration form */
 $string['setting-navbar_enabled'] = 'Prikaži navigacijsku traku';
-$string['setting-navbar_enabled-descr'] = 'Odaberite da li će navigacijska traka biti prikazana na vrhu Moodle stranice';
+$string['setting-navbar_enabled-descr'] = 'Odaberite da li će navigacijska traka biti prikazana na vrhu Moodle stranice. To će raditi samo ako je  <em>Screenreader</em> tema uključena';
 $string['setting-jumpers'] = 'Jumpers JSON konfiguracija';
 $string['setting-jumpers-descr'] = 'Please use online JSON validation tool (e.g. http://jsonformatter.curiousconcept.com) to validate entry before submit.
 <br>Configuration should look like this: <pre><code>[{"selector": "<em>my_CSS_selector</em>", "name":"<em>my_name</em>"}, {...}, ... ]</code></pre> where <code><em>my_CSS_selector</code></em> is CSS selector that references some element of currently loaded web page where jumper should switch the focus and <code><em>my_name</code></em> is a name of a link (jumper) within navigation bar that is visible to a user.
