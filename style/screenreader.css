@@ -1,9 +1,4 @@
-/*
-	this is to override fixed navbar behavior
- */
-body{
-	padding-top: 0 !important;
-}
+/* leave some extra space here because our server cannot parse [ [  tags */
 
 
 .navbar-fixed-top{
@@ -16,5 +11,6 @@ body{
 	margin:5px;
 	border:2px solid black;
 	z-index:1111;
+	margin-top: -55px; /* this is to override fixed navbar behavior */
 }
 

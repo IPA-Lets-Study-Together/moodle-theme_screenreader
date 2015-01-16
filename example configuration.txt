@@ -1,0 +1,5 @@
+[ {"selector":".block_navigation", "name":"Navigacijski blok"}, {"selector":".block_settings", "name":"Administracijski blok"}, {"selector":".block_calendar_month", "name":"Kalendar"} ]
+
+[{"href":"http://www.studiramozajedno.eu/moodle/course/index.php?categoryid=11", "name":"Preddiplomski studij sociologije"},
+	{"href":"http://www.studiramozajedno.eu/moodle/course/view.php?id=72", "name":"Kolegij Etike"},
+	{"href":"http://www.studiramozajedno.eu/moodle/course/view.php?id=60", "name":"Sociologija hrvatskog društva"} ]
